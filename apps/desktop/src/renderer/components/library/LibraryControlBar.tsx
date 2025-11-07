@@ -251,7 +251,10 @@ const LibraryControlBar: React.FC<Props> = (props: Props) => {
         </DropdownMenu>
       </div>
       <div className="flex gap-3 flex-nowrap justify-end">
-        <form onSubmit={() => false}>
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            return false;
+        }}>
           <div className="relative">
             <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input

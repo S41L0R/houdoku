@@ -100,7 +100,8 @@ const SearchControlBar: React.FC<Props> = (props: Props) => {
       <>
         <form
           className="flex flex-1 space-x-2"
-          onSubmit={() => {
+          onSubmit={(e) => {
+            e.preventDefault();
             props.handleSearch(true);
             return false;
           }}
