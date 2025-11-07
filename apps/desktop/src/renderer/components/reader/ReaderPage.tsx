@@ -537,7 +537,10 @@ const ReaderPage: React.FC = () => {
         setPageNumber(lastPageNumber);
       }
     } else if (pageNumber <= 0) {
-      changeChapter('previous', true);
+      const changed = changeChapter('previous', true);
+      if (!changed) {
+          setPageNumber(1);
+      }
     }
   }, [pageNumber]);
 
