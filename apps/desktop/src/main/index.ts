@@ -63,6 +63,7 @@ const createWindows = async () => {
     minWidth: 250,
     minHeight: 150,
     frame: false,
+    titleBarStyle: "hiddenInset",
     icon: getAssetPath('icon.png'),
     webPreferences: {
       nodeIntegration: true,
@@ -227,6 +228,8 @@ ipcMain.handle(ipcChannels.APP.READ_ENTIRE_FILE, (_event, filepath: string) => {
 
   return fs.readFileSync(filepath).toString();
 });
+
+ipcMain.handle(ipcChannels.GET_PLATFORM, () => process.platform);
 
 if (process.platform === 'win32') {
   app.commandLine.appendSwitch('high-dpi-support', '1');

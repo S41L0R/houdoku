@@ -18,6 +18,7 @@ import {
   runningState,
 } from './state/downloaderStates';
 import { autoCheckForUpdatesState } from './state/settingStates';
+import { platformState } from './state/applicationStates';
 import library from './services/library';
 import {
   createRendererIpcHandlers,
@@ -51,6 +52,7 @@ export default function App() {
   const setCurrentTask = useSetRecoilState(currentTaskState);
   const setDownloadErrors = useSetRecoilState(downloadErrorsState);
   const autoCheckForUpdates = useRecoilValue(autoCheckForUpdatesState);
+  const setPlatform = useSetRecoilState(platformState);
 
   useEffect(() => {
     if (loading) {
@@ -59,6 +61,10 @@ export default function App() {
       /**
        * Add any additional preload steps here (e.g. data migration, verifications, etc)
        */
+
+      ipcRenderer.invoke(ipcChannels.GET_PLATFORM).then((p) => {
+          setPlatform(p);
+      });
 
       createRendererIpcHandlers(
         (updateInfo) => {

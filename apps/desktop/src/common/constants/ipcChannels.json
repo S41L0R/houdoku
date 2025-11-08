@@ -75,5 +75,6 @@
   },
   "INTEGRATION": {
     "DISCORD_SET_ACTIVITY": "integration-discordSetActivity"
-  }
+  },
+  "GET_PLATFORM": "getPlatform"
 }

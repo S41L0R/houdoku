@@ -91,7 +91,7 @@ export function DashboardSidebar({ ...props }: React.ComponentProps<typeof Sideb
 
   return (
     <Sidebar {...props}>
-      <SidebarHeader className="pt-4" />
+      <SidebarHeader className="pt-4 h-[28px]" />
       <SidebarContent>
         <NewCategoryDialog
           open={showingNewCategoryDialog}
