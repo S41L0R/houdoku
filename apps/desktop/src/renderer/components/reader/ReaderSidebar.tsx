@@ -112,15 +112,18 @@ export const ReaderSidebar: React.FC<Props> = (props: Props) => {
   return (
     <Sidebar collapsible="offcanvas">
       <SidebarHeader className="border-b border-sidebar-border">
-        <SidebarMenuItem>
-          <SidebarMenuButton
-            className="max-w-full flex space-x-1 px-1 py-6"
-            onClick={() => props.exitPage()}
-          >
-            <XIcon className="opacity-50" />
-            <h3 className="truncate font-semibold text-wrap line-clamp-2">{readerSeries.title}</h3>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
+          <div className="h-[20px]" />
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                className="max-w-full flex space-x-1 px-1 py-6"
+                onClick={() => props.exitPage()}
+              >
+                <XIcon className="opacity-50" />
+                <h3 className="truncate font-semibold text-wrap line-clamp-2">{readerSeries.title}</h3>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup className="pt-4">
